@@ -2,7 +2,7 @@ title: Tokenized Podcast
 url: https://tokenizedpodcastfeed.flowfx.org
 
 ### download_url: is needed, if and only if audio files are hosted in a different location, it is the path of the directory where the audio files are stored
-download_url: ${SECRETTOKEN}
+download_url: https://tokenizedpodcastfeed.flowfx.org/TOTALLYUNIQUESTRING
 subtitle: Subtitle - Building an internal podcast service
 description: Description - Putting my coding skillz to work.
 author: FlowFX
@@ -23,7 +23,7 @@ date_format: ordinal
 ### Rsync Deploy config: Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_host: dh_flowfx@anaconda.dreamhost.com
 ssh_port: 22
-document_root: /home/flowfx/tokenizedpodcastfeed.flowfx.org/
+document_root: /home/dh_flowfx/tokenizedpodcastfeed.flowfx.org/
 rsync_delete: true
 
 ### Twiter config, optional
