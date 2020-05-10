@@ -2,7 +2,7 @@ title: Tokenized Podcast
 url: https://tokenizedpodcastfeed.flowfx.org
 
 ### download_url: is needed, if and only if audio files are hosted in a different location, it is the path of the directory where the audio files are stored
-download_url: https://tokenizedpodcastfeed.flowfx.org/TOTALLYUNIQUESTRING
+download_url: https://tokenizedpodcastfeed.flowfx.org/episodes/TOTALLYUNIQUESTRING
 subtitle: Subtitle - Building an internal podcast service
 description: Description - Putting my coding skillz to work.
 author: FlowFX
