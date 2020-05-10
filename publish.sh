@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# REMARKS:
-#
-
 # Octopod (i.e. jekyll) builds a static site in the _site directory.
 echo "## Building a website"
 octopod build
