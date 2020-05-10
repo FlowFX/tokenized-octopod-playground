@@ -26,28 +26,20 @@ do
   cp episodes.mp3.rss "feed/$TOKEN.rss"
 done < "$input"
 
+cp episodes/.htaccess feed/.htaccess
 rm episodes*.mp3.rss
 rm tokens.txt
 
-# The episodes htaccess is ignored by the deploy command and has to be added
-# manually on the server. This is to prevent rsync from deleting the softlink
-# that points from the publicly-accessible episodes directory to where the mp3s
-# are actually located in the file system.
-#
-# Yes, episodes/ANOTHERSECRETSTRING should be softlink to another directory that
-# is not publicly accessible from the web. This allows us to change the apparent
+# episodes/ANOTHERSECRETSTRING should be softlink to another directory that is
+# not publicly accessible from the web. This allows us to change the apparent
 # location of the media files from time to time by
 #
-# 1. changing the "download_url" in `_config.yml`
-# 2. renaming this softlink directly on the server
+# 1. changing the "download_url" in `_config.yml` 2. renaming this softlink
+# directly on the server
 #
 # We can easily do this e.g. when someone leaves the company and should not have
 # access to the files anymore, which they would have because they may still have
 # a copy of the RSS feed, and this `ANOTHERSECRETSTRING` is included in it.
-cp ht.access.allowfromall episodes/.htaccess
-cp ht.access.allowfromall feed/.htaccess
-cp ht.access.allowfromall img/.htaccess
-rm ht.access.allowfromall
 
 cd ..
 
