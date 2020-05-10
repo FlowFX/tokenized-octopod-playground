@@ -11,8 +11,6 @@ cd _site
 echo "\n## Creating token-based RSS feeds"
 rm episodes1.mp3.rss
 
-mkdir feed
-
 # The tokens.txt has to contain 1 token per line. It should be as simple as:
 #
 # flowfx.SECRETTOKEN
@@ -21,7 +19,9 @@ mkdir feed
 # The individual RSS feeds will then be accessible at:
 #
 # https://podcasturlthing.org/feed/flowfx.SECRETTOKEN.rss
+mkdir feed
 input="tokens.txt"
+
 while read -r TOKEN
 do
   cp episodes.mp3.rss "feed/$TOKEN.rss"
@@ -34,6 +34,17 @@ rm tokens.txt
 # manually on the server. This is to prevent rsync from deleting the softlink
 # that points from the publicly-accessible episodes directory to where the mp3s
 # are actually located in the file system.
+#
+# Yes, episodes/ANOTHERSECRETSTRING should be softlink to another directory that
+# is not publicly accessible from the web. This allows us to change the apparent
+# location of the media files from time to time by
+#
+# 1. changing the "download_url" in `_config.yml`
+# 2. renaming this softlink directly on the server
+#
+# We can easily do this e.g. when someone leaves the company and should not have
+# access to the files anymore, which they would have because they may still have
+# a copy of the RSS feed, and this `ANOTHERSECRETSTRING` is included in it.
 cp ht.access.allowfromall episodes/.htaccess
 cp ht.access.allowfromall feed/.htaccess
 cp ht.access.allowfromall img/.htaccess
