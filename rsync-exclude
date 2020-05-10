@@ -1,5 +1,3 @@
-+ episodes/.htaccess
-- episodes/*
 - tokens.txt
 - publish.sh
 - rsync-exclude

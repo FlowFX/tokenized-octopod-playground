@@ -30,16 +30,15 @@ cp episodes/.htaccess feed/.htaccess
 rm episodes*.mp3.rss
 rm tokens.txt
 
-# episodes/ANOTHERSECRETSTRING should be softlink to another directory that is
-# not publicly accessible from the web. This allows us to change the apparent
-# location of the media files from time to time by
-#
-# 1. changing the "download_url" in `_config.yml` 2. renaming this softlink
-# directly on the server
-#
-# We can easily do this e.g. when someone leaves the company and should not have
-# access to the files anymore, which they would have because they may still have
-# a copy of the RSS feed, and this `ANOTHERSECRETSTRING` is included in it.
+# Because the episode files are simply named SLUGXXX.mp3, their location is
+# easily guessable once you know the location of one of them. For this reason,
+# we can put the audio files into a subfolder and regularly change the name of
+# the subfolder. Everyone who has access to the RSS feed can access all the
+# files as long as this subfolder is not renamed. Renaming it does not break
+# current subscriptions, because we change the `download_url` in the
+# configuration file at the same time.
+mkdir episodes/TOTALLYUNIQUESTRING
+mv episodes/*.mp3 episodes/TOTALLYUNIQUESTRING/
 
 cd ..
 
