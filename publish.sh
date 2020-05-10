@@ -16,6 +16,14 @@ rm episodes1.mp3.rss
 
 mkdir feed
 
+# The tokens.txt has to contain 1 token per line. It should be as simple as:
+#
+# flowfx.SECRETTOKEN
+# zeitschlag.AMORESECRETTOKEN
+#
+# The individual RSS feeds will then be accessible at:
+#
+# https://podcasturlthing.org/feed/flowfx.SECRETTOKEN.rss
 input="tokens.txt"
 while read -r TOKEN
 do
