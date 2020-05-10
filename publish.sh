@@ -4,13 +4,14 @@
 #
 
 # Octopod (i.e. jekyll) builds a static site in the _site directory.
+echo "## Building a website"
 octopod build
 cd _site
 
 # We don't want to publish the feed on iTunes or anywhere else. So I'm opting to
 # not paginate it. This is crudely done by setting the page size in the
 # configuration file to 1000 and to delete any feed pages below.
-echo "CREATE TOKEN-BASED FEEDS"
+echo "\n## Creating token-based RSS feeds"
 rm episodes1.mp3.rss
 
 mkdir feed
@@ -35,5 +36,5 @@ rm ht.access.allowfromall
 
 cd ..
 
-echo "octopod deploy"
+# Deploy website via Rsync
 octopod deploy
