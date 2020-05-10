@@ -1,5 +1,5 @@
-episodes/*
-tokens.txt
-publish.sh
-rsync-exclude
-subscribe-button
++ episodes/.htaccess
+- episodes/*
+- tokens.txt
+- publish.sh
+- rsync-exclude
