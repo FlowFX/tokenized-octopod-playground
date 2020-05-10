@@ -13,18 +13,21 @@ rm episodes/*
 rm episodes1.mp3.rss
 
 mkdir feed
-mv episodes.mp3.rss feed/
 
-cd feed
-cp episodes.mp3.rss florian.posdziech.SECRETTOKEN.rss
-cp episodes.mp3.rss daniela.matheis.SECRETTOKEN.rss
-cp episodes.mp3.rss vineet.SECRETTOKEN.rss
+input="tokens.txt"
+while read -r TOKEN
+do
+  cp episodes.mp3.rss "feed/$TOKEN.rss"
+done < "$input"
+
+rm episodes.mp3.rss
+rm tokens.txt
 
 cp ht.access.allowfromall feed/.htaccess
 cp ht.access.allowfromall img/.htaccess
 rm ht.access.allowfromall
 
-cd ../..
+cd ..
 
 echo "octopod deploy"
 octopod deploy
