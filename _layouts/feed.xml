@@ -28,6 +28,7 @@ layout: null
     <itunes:summary>{{ site.description | markdownify | strip_html }}</itunes:summary>
     <itunes:author>{{ site.author }}</itunes:author>
     <itunes:explicit>{{ site.explicit }}</itunes:explicit>
+    <itunes:block>{{ site.private }}</itunes:block>
     <itunes:image href="{{ site.url }}/img/logo-itunes.jpg" />
     <itunes:owner>
       <itunes:name>{{ site.author }}</itunes:name>
